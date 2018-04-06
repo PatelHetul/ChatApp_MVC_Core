@@ -1,0 +1,36 @@
+﻿@model Chat_App_MVC_Core.Models.GroupDetails
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GroupDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Grp_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Grp_Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Grp_Member)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Grp_Member)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Grp_Admin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Grp_Admin)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-action="Index">Back to List</a>
+</div>

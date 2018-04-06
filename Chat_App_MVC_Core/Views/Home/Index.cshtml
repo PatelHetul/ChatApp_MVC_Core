@@ -1,0 +1,42 @@
+﻿@page
+<style>
+	th, td {
+		padding: 3px;
+	}
+</style>
+
+
+<div class="row">
+	<p></p>
+	<div class="col-md-12">
+		<form action="#">
+			<table>
+				<tr>
+					<td>
+
+						<input type="hidden" id="user" value="@ViewBag.Name" />
+					</td>
+					<td>Send To</td>
+					<td colspan="2">
+						@*<input type="text" id="user" value="@ViewBag.Name" disabled />*@
+						@Html.DropDownList("UserId", ViewBag.UserList as SelectList,"Select Reciver")
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>Message</td>
+					<td colspan="2">
+						<input type="text" id="message" />
+					</td>
+					<td>
+						<input type="submit" id="send" value="Send" />
+					</td>
+				</tr>
+			</table>
+		</form>
+		<p></p>
+		<ul id="messages" style="list-style-type:none; height:450px;overflow:auto"></ul>
+	</div>
+</div>
+<script src="~/lib/signalr.js"></script>
+<script src="~/js/chat1.js"></script>

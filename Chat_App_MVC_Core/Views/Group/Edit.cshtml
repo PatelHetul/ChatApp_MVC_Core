@@ -1,0 +1,40 @@
+﻿@model Chat_App_MVC_Core.Models.GroupDetails
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>GroupDetails</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Grp_id" />
+            <div class="form-group">
+                <label asp-for="Grp_Name" class="control-label"></label>
+                <input asp-for="Grp_Name" class="form-control" />
+                <span asp-validation-for="Grp_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grp_Member" class="control-label"></label>
+				<select asp-for="Grp_Member" class="form-control" asp-items="ViewBag.Email" multiple="multiple" style="height:auto"></select>
+                <span asp-validation-for="Grp_Member" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

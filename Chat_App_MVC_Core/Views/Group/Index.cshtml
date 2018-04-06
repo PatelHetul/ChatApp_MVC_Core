@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Chat_App_MVC_Core.Models.GroupDetails>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Grp_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Grp_Member)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Grp_Admin)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grp_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grp_Member)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grp_Admin)
+            </td>
+            <td>
+				
+                <a asp-action="Edit" asp-route-id="@item.Grp_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Grp_id">Details</a> |
+                <a asp-action="Remove" asp-route-id="@item.Grp_id" onclick="return confirm('Are you really want to left this group?')">Remove Group</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
